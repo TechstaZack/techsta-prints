@@ -695,7 +695,7 @@ function rocktopusModal(){
         <h5 style='color: grey;' id="dynamic-price">$1</h5>
         <hr>
 
-        <h5>Outer Colour</h5>
+        <h5>Top Colour</h5>
 
         <select name="outercolour" id="option1" class="btn btn-outline-secondary" onchange="rocktopusUpdated()">
           <option value="bla">Black</option>
@@ -709,7 +709,7 @@ function rocktopusModal(){
           <option value="wh">White</option>
           <option value="re">Red</option>
         </select>
-        <h5>Inner Colour</h5>
+        <h5>Bottom Colour</h5>
 
         <select name="outercolour" id="option2" class="btn btn-outline-secondary" onchange="rocktopusUpdated()">
           <option value="bla">Black</option>
