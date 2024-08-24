@@ -1,8 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>
-            Hidden Page
-        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hidden Page</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -10,25 +11,42 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            margin: 0;
+        }
+        h1, h3 {
+            color: grey;
+        }
+        #ht {
+            padding-top: 10%;
+        }
+        .container {
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }</style>
         <div class="container">
-            <center>
-        <h1 id="ht" style="padding-top:30%;color: grey;">Techsta Prints</h1>
-        <h3 style="color: grey;">This website is only for Kilvington.</h3>
-        <h3 style="color: grey;">Please input your email here:</h3>
-        <div class="input-group" id="input">
-            <input type="text" class="form-control" placeholder="Your email" aria-label="Recipient's username" aria-describedby="basic-addon2" id="email">
-            <span class="input-group-text" id="basic-addon2">@kilvington.vic.edu.au</span>
-          </div>          
-        <br>
-        <h5 id="nope" style="color:red;"></h5>
-        <button class="btn btn-outline-secondary" style="width:100px" onclick="enter()">Enter</button>
-        <center>
+            <h1 id="ht">Techsta Prints</h1>
+            <h3>This website is only for Kilvington.</h3>
+            <h3>Please input your email here:</h3>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Your email" aria-label="Recipient's username" aria-describedby="basic-addon2" id="email">
+                <span class="input-group-text" id="basic-addon2">@kilvington.vic.edu.au</span>
+            </div>          
+            <h5 id="nope" style="color:red;"></h5>
+            <button class="btn btn-outline-secondary" style="width:100%;" onclick="enter()">Enter</button>
         </div>
         <script src="index.js"></script>
         <script>
-            const epicvar = localStorage.getItem("email")
-            if(epicvar != null || epicvar == ''){
-                window.location.href='shop.html'
+            const epicvar = localStorage.getItem("email");
+            if (epicvar != null || epicvar == '') {
+                window.location.href = 'shop.html';
             }
         </script>
     </body>
