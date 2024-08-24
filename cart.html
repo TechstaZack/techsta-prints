@@ -21,17 +21,6 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="shop.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Fidgets
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">All Fidgets</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Treadmill Fidgets</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </li>
               </ul>
               <button class="btn btn-outline-danger" style="margin-right: 20px;" onclick="logout()" id="emailchecker" style="color:grey"></button>
               <button id='cart' class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -43,7 +32,7 @@
         <div class="container">
             <center>
          <h1 id="ht" style="padding-top:5%;color: grey;">Your Cart</h1>
-                <button class="btn btn-outline-danger" style="color: red;" onclick="clearcart()">Clear Cart</button>
+         <hr>
                 <div id="cartScreen">
                     We are currently getting the information about your cart.<br>This may take a minute.
                 </div>
@@ -92,7 +81,10 @@ if (amount) {
         );
 
         const cartItems = await Promise.all(fetchPromises);
-        document.getElementById('cartScreen').innerHTML = `<br><button class="btn btn-outline-success" onclick='sessionCreate()'>Purchase Online <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+        document.getElementById('cartScreen').innerHTML = `<button class="btn btn-outline-danger" style="color: red;" onclick="clearcart()">Clear Cart <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-x" viewBox="0 0 16 16">
+                  <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793z"/>
+                  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                </svg></button><br><br><button class="btn btn-outline-success" onclick='sessionCreate()'>Purchase Online <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
   <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
 </svg></button><br>
