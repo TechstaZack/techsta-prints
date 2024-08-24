@@ -21,17 +21,6 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="shop.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Fidgets
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">All Fidgets</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Treadmill Fidgets</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </li>
               </ul>
               <button class="btn btn-outline-danger" style="margin-right: 20px;" onclick="logout()" id="emailchecker" style="color:grey"></button>
               <button id='cart' href='shop.html' class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -76,8 +65,8 @@
       }else if(response.ok){
         fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/webhook?pricecode=${pricecodes}&quantities${quantities}&email=${email}&online=true`)
         .then(response => {
-            if(response.ok) {
-                document.getElementById('replacemeee').innerHTML = 'Purchase completed!<br>You should get an email shortly about your order and how to pay.'
+            if(response.ok) { 
+                document.getElementById('replacemeee').innerHTML = 'Purchase completed!<br>You should get an email shortly about your order.'
                 clearcartfinal()
             }
         })
