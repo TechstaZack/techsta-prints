@@ -21,17 +21,6 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="shop.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Fidgets
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">All Fidgets</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Treadmill Fidgets</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </li>
               </ul>
               <button class="btn btn-outline-danger" style="margin-right: 20px;" onclick="logout()" id="emailchecker" style="color:grey"></button>
               <a id='cart' class="btn btn-outline-secondary my-2 my-sm-0" type="submit" href="cart.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -48,28 +37,65 @@
         <hr>
         <div>
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
-  
   </div>
-        <div style="width: 45%; height: 575px; float: left;" class="form-control">
-             <h1 style='color:grey;'>Triangle Fidget</h1>
-             <hr>
-             <img src="images/triangle.jpg" width="225px", height="300px">
-             <br>
-             <br>
-             <h5 style='color: grey;'>$1-$2</h5>
-             <hr>
-             <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#productModal" onclick="triModal()">Add To Cart <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
-                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
-              </svg>
+  <div class="row">
+
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <img src="images/triangle.jpg" class="card-img-top" alt="Triangle Fidget">
+            <div class="card-body">
+                <h5 class="card-title" style='color:grey;'>Triangle Fidget</h5>
+                <p class="card-text" style='color: grey;'>$1-$2</p>
+                <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#productModal" onclick="triModal()">
+                    Add To Cart
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                        <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                    </svg>
+                </button>
+                <hr>
+                <h5 class="credit">Fulfilled by Zac Cooper • <a href='https://www.printables.com/model/534358' target="_blank">3D model download Here</a></h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <img src="images/rectangle.jpg" class="card-img-top" alt="Triangle Fidget">
+            <div class="card-body">
+                <h5 class="card-title" style='color:grey;'>Rectangle Fidget</h5>
+                <p class="card-text" style='color: grey;'>$1-$2</p>
+                <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#productModal" onclick="recModal()">
+                    Add To Cart
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                        <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                    </svg>
+                </button>
+                <hr>
+                <h5 class="credit">Fulfilled by Zac Cooper • <a href='https://www.printables.com/model/534358' target="_blank">3D model download Here</a></h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card">
+          <img src="images/circle.jpg" class="card-img-top" alt="Triangle Fidget">
+          <div class="card-body">
+              <h5 class="card-title" style='color:grey;'>Circle Fidget</h5>
+              <p class="card-text" style='color: grey;'>¢75-$1.75</p>
+              <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#productModal" onclick="cirModal()">
+                  Add To Cart
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                      <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                  </svg>
               </button>
               <hr>
               <h5 class="credit">Fulfilled by Zac Cooper • <a href='https://www.printables.com/model/534358' target="_blank">3D model download Here</a></h5>
-              
-
-        </div>
-        <div style="width: 45%; float: right;" class="form-control"> Right </div>
-    </div>
+          </div>
+      </div>
+  </div>
+</div>
         <center>
         </div>
         <script src="index.js"></script>
