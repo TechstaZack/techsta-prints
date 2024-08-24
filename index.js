@@ -247,7 +247,8 @@ function triaddtocart(){
       let priceid = data.priceid;
       console.log(priceid)
       const priceArray = cartprices.split(',');
-      for (let i = 0; i <= priceArray.length; i++){
+      const length = priceArray.length - 1;
+        for (let i = 0; i <= length; i++){
           if(priceArray[i].includes(priceid)){
               alreadyin = true
               alreadyinno = i
@@ -318,7 +319,8 @@ if(cartprices == null || cartprices == ''){
     let priceid = data.priceid;
     console.log(priceid)
     const priceArray = cartprices.split(',');
-    for (let i = 0; i <= priceArray.length; i++){
+    const length = priceArray.length - 1;
+        for (let i = 0; i <= length; i++){
         if(priceArray[i].includes(priceid)){
             alreadyin = true
             alreadyinno = i
@@ -389,7 +391,8 @@ function ciraddtocart(){
       let priceid = data.priceid;
       console.log(priceid)
       const priceArray = cartprices.split(',');
-      for (let i = 0; i <= priceArray.length; i++){
+      const length = priceArray.length - 1;
+        for (let i = 0; i <= length; i++){
           if(priceArray[i].includes(priceid)){
               alreadyin = true
               alreadyinno = i
@@ -458,9 +461,9 @@ function rocktopusaddtocart(){
         let alreadyin = false
         let alreadyinno = null
         let priceid = data.priceid;
-        console.log(priceid)
         const priceArray = cartprices.split(',');
-        for (let i = 0; i <= priceArray.length; i++){
+        const length = priceArray.length - 1;
+        for (let i = 0; i <= length; i++){
             if(priceArray[i].includes(priceid)){
                 alreadyin = true
                 alreadyinno = i
@@ -530,7 +533,8 @@ function cubeaddtocart(){
       let priceid = data.priceid;
       console.log(priceid)
       const priceArray = cartprices.split(',');
-      for (let i = 0; i <= priceArray.length; i++){
+      const length = priceArray.length - 1;
+        for (let i = 0; i <= length; i++){
           if(priceArray[i].includes(priceid)){
               alreadyin = true
               alreadyinno = i
