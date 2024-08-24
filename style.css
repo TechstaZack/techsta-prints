@@ -1,0 +1,14 @@
+*{
+    color:grey !important;
+}
+.credit{
+    color:grey;
+    font-size: 12px;
+}
+.product{
+    width: 45%; 
+    height: 575px; 
+    float: left;
+}.productright{
+    float:right;
+}

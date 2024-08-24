@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>
+            Techsta Prints
+        </title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Techsta Prints</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="shop.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Fidgets
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">All Fidgets</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Treadmill Fidgets</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+              </ul>
+              <button class="btn btn-outline-danger" style="margin-right: 20px;" onclick="logout()" id="emailchecker" style="color:grey"></button>
+              <button id='cart' class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+              </svg></button>
+            </div>
+          </nav>
+          
+        <div class="container">
+            <center>
+         <h1 id="ht" style="padding-top:5%;color: grey;">Your Cart</h1>
+                <button class="btn btn-outline-danger" style="color: red;" onclick="clearcart()">Clear Cart</button>
+                <div id="cartScreen">
+                    We are currently getting the information about your cart.<br>This may take a minute.
+                </div>
+                
+             
+        <center>
+        </div>
+        <script src="index.js"></script>
+        <script>
+const epicvar = localStorage.getItem("email");
+const priceCode = localStorage.getItem('cart-price');
+const quantities = localStorage.getItem('cart-quantity');
+const amount = localStorage.getItem('cart-amount');
+
+if (!epicvar) {
+    window.location.href = 'index.html';
+} else {
+    document.getElementById('emailchecker').innerHTML = epicvar;
+}
+
+if (amount) {
+    document.getElementById('cart').innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+        </svg> ${amount}`;
+
+    const prices = priceCode.split(',');
+    const quantityList = quantities.split(',');
+
+    const fetchPriceData = async () => {
+        const fetchPromises = prices.map((price, index) =>
+            fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/price-data?pricecode=${price}`)
+                .then(response => response.json())
+                .then(data => {
+                    let price = data.price * quantityList[index];
+                    price = price < 100 ? `¢${price}` : `$${(price / 100).toFixed(2)}`;
+                    return `
+                        <hr>
+                        <div class="item-name">
+                            <h3 style='color:grey;'>${data.name} | ${data.nickname}</h3>
+                        </div>
+                        <div class="item-price">
+                            <h3>x${quantityList[index]} | ${price}</h3>
+                        </div>`;
+                })
+        );
+
+        const cartItems = await Promise.all(fetchPromises);
+        document.getElementById('cartScreen').innerHTML = `<br><button class="btn btn-outline-success" onclick='sessionCreate()'>Purchase Online <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+  <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+</svg></button><br>
+<br><a class='btn btn-outline-primary' href='success.html'>Purchase In Cash <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/>
+  <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/>
+  <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/>
+  <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/>
+</svg></a>` + cartItems.join('');
+    };
+
+    window.onload = fetchPriceData;
+} else {
+    document.getElementById('cartScreen').innerHTML = `<h3>You do not have anything in your cart!</h3>`;
+}
+
+        </script>
+    </body>
+</html>
