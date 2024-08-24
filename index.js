@@ -14,7 +14,7 @@ function clearcartfinal(){
 function sessionCreate(){
   const pricecodes = localStorage.getItem('cart-price')
   const quantities = localStorage.getItem('cart-quantity')
-  fetch(`http://localhost:8080/create-session?prices=${pricecodes}&quantities=${quantities}`)
+  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/create-session?prices=${pricecodes}&quantities=${quantities}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
