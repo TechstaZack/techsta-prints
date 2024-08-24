@@ -738,7 +738,7 @@ function rocktopusModal(){
           <option value="10">10</option>
         </select>
         <hr>
-        <h5 class="credit">Fulfilled by Zac Cooper • <a href='https://www.printables.com/model/534358' target="_blank">3D model download Here</a></h5>
+        <h5 class="credit">Fulfilled by Zac Cooper • <a href='https://www.printables.com/model/237713-rocktopus/files' target="_blank">3D model download Here</a></h5>
       </div>
       <div class="modal-footer" style='object-position: center;'>
           <button data-dismiss="modal" class="btn btn-outline-secondary" id="addtocart" onclick="rocktopusaddtocart()">Add To Cart <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
