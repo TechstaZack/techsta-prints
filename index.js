@@ -431,7 +431,7 @@ function rocktopusaddtocart(){
     const amount = localStorage.getItem('cart-amount')
     
     if(cartprices == null || cartprices == ''){
-        fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=roctopus-${value1}-${value2}`)
+        fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus-${value1}-${value2}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
