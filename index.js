@@ -218,7 +218,7 @@ function triaddtocart(){
   const amount = localStorage.getItem('cart-amount')
 
   if(cartprices == null || cartprices == ''){
-      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=${value1}-${value2}`)
+      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=tria-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -234,7 +234,7 @@ function triaddtocart(){
             </svg> 1`
   })
   }else{
-      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=${value1}-${value2}`)
+      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=tria-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -590,7 +590,7 @@ function triModal(){
           <h5>Outer Colour</h5>
 
           <select name="outercolour" id="option1" class="btn btn-outline-secondary" onchange="fidTriUpdated()">
-            <option value="bla">Black</option>
+            <option value="tra-bla">Black</option>
             <option value="sk">Sky Blue</option>
             <option value="br">Pink</option>
             <option value="go">Gold</option>
