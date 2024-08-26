@@ -61,6 +61,7 @@
                 document.getElementById('yep').innerHTML = '<h5 style="color:red !important;"></h5>'
                 const url = document.getElementById('link').value;
                 if(url == stopspam) return;
+                stopspam = url;
                 const email = window.localStorage.getItem('email');
                 if(url == null || url == '') return;
                 document.getElementById('yep').innerHTML = `<h5 style="color:grey !important;">Loading</h5>`
