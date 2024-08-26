@@ -180,7 +180,7 @@ function cubeUpdated(){
   const value1 = document.getElementById('option1').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = ''
-  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=fidgetcube-${value1}`)
+  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cube-${value1}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -504,7 +504,7 @@ function cubeaddtocart(){
   const amount = localStorage.getItem('cart-amount')
   
   if(cartprices == null || cartprices == ''){
-      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=fidgetcube-${value1}`)
+      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cube-${value1}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -520,7 +520,7 @@ function cubeaddtocart(){
             </svg> 1`
   })
   }else{
-      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=fidgetcube-${value1}`)
+      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cube-${value1}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -584,7 +584,7 @@ function triModal(){
           <hr>
           <img src="images/triangle.jpg" width="225px", height="300px">
           <br><br>
-          <h5 style='color: grey;' id="dynamic-price">$1.00</h5>
+          <h5 style='color: grey;' id="dynamic-price">$3.00</h5>
           <hr>
 
           <h5>Outer Colour</h5>
@@ -655,7 +655,7 @@ function recModal(){
         <hr>
         <img src="images/rectangle.jpg" width="225px", height="300px">
         <br><br>
-        <h5 style='color: grey;' id="dynamic-price">$1.00</h5>
+        <h5 style='color: grey;' id="dynamic-price">$3.00</h5>
         <hr>
 
         <h5>Outer Colour</h5>
@@ -726,7 +726,7 @@ function cirModal(){
         <hr>
         <img src="images/circle.jpg" width="225px", height="300px">
         <br><br>
-        <h5 style='color: grey;' id="dynamic-price">¢75</h5>
+        <h5 style='color: grey;' id="dynamic-price">$3</h5>
         <hr>
 
         <h5>Outer Colour</h5>
@@ -797,7 +797,7 @@ function rocktopusModal(){
         <hr>
         <img src="images/rocktopus.jpg" width="225px", height="300px">
         <br><br>
-        <h5 style='color: grey;' id="dynamic-price">$1</h5>
+        <h5 style='color: grey;' id="dynamic-price">$3</h5>
         <hr>
 
         <h5>Top Colour</h5>
@@ -868,7 +868,7 @@ function cubeModal(){
         <hr>
         <img src="images/fidget-cube.jpg" width="225px", height="300px">
         <br><br>
-        <h5 style='color: grey;' id="dynamic-price">$2</h5>
+        <h5 style='color: grey;' id="dynamic-price">$4</h5>
         <hr>
 
         <h5>Colour</h5>
