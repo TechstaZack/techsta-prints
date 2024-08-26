@@ -55,7 +55,7 @@ function fidTriUpdated(){
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = ''
-  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=${value1}-${value2}`)
+  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=tria-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -87,7 +87,7 @@ function fidRecUpdated(){
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = ''
-  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rec-${value1}-${value2}`)
+  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rectanglefid-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -119,7 +119,7 @@ function fidCirUpdated(){
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = ''
-  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cir-${value1}-${value2}`)
+  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=circlefid-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -150,7 +150,7 @@ function rocktopusUpdated(){
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = ''
-  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus-${value1}-${value2}`)
+  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus2-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -180,7 +180,7 @@ function cubeUpdated(){
   const value1 = document.getElementById('option1').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = ''
-  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cube-${value1}`)
+  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=fidgetcube-${value1}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -290,7 +290,7 @@ const quantities = localStorage.getItem('cart-quantity')
 const amount = localStorage.getItem('cart-amount')
 
 if(cartprices == null || cartprices == ''){
-    fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rec-${value1}-${value2}`)
+    fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rectanglefid-${value1}-${value2}`)
 .then(response => {
   if (!response.ok) {
     throw new Error('Network response was not ok');
@@ -306,7 +306,7 @@ if(cartprices == null || cartprices == ''){
           </svg> 1`
 })
 }else{
-    fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rec-${value1}-${value2}`)
+    fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rectanglefid-${value1}-${value2}`)
 .then(response => {
   if (!response.ok) {
     throw new Error('Network response was not ok');
@@ -362,7 +362,7 @@ function ciraddtocart(){
   const amount = localStorage.getItem('cart-amount')
   
   if(cartprices == null || cartprices == ''){
-      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cir-${value1}-${value2}`)
+      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=circlefid-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -378,7 +378,7 @@ function ciraddtocart(){
             </svg> 1`
   })
   }else{
-      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cir-${value1}-${value2}`)
+      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=circlefid-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -434,7 +434,7 @@ function rocktopusaddtocart(){
     const amount = localStorage.getItem('cart-amount')
     
     if(cartprices == null || cartprices == ''){
-        fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus-${value1}-${value2}`)
+        fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus2-${value1}-${value2}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -450,7 +450,7 @@ function rocktopusaddtocart(){
               </svg> 1`
     })
     }else{
-        fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus-${value1}-${value2}`)
+        fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus2-${value1}-${value2}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -504,7 +504,7 @@ function cubeaddtocart(){
   const amount = localStorage.getItem('cart-amount')
   
   if(cartprices == null || cartprices == ''){
-      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cube-${value1}`)
+      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=fidgetcube-${value1}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -520,7 +520,7 @@ function cubeaddtocart(){
             </svg> 1`
   })
   }else{
-      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cube-${value1}`)
+      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=fidgetcube-${value1}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
