@@ -39,7 +39,7 @@
             <h3>Submit a valid url</h3>
             <hr>
             <div class="input-group">
-                <input type="link" class="form-control" placeholder="https://3dprintwebsite.com/modelpage" aria-label="Recipient's username" aria-describedby="basic-addon2" id="link">
+                <input type="url" class="form-control" placeholder="https://3dprintwebsite.com/modelpage" aria-label="Recipient's username" aria-describedby="basic-addon2" id="link">
             </div>          
             <br>
             <button class="btn btn-outline-secondary" style="width:100%;" onclick="SubmitURL()">Submit</button>
@@ -50,6 +50,7 @@
         </div>
         <script src="index.js"></script>
         <script>
+            let stopspam = null
             const epicvar = localStorage.getItem("email")
             if(epicvar == null || epicvar == ''){
                 window.location.href='index.html'
@@ -59,6 +60,7 @@
             function SubmitURL(){
                 document.getElementById('yep').innerHTML = '<h5 style="color:red !important;"></h5>'
                 const url = document.getElementById('link').value;
+                if(url == stopspam) return;
                 const email = window.localStorage.getItem('email');
                 if(url == null || url == '') return;
                 document.getElementById('yep').innerHTML = `<h5 style="color:grey !important;">Loading</h5>`
