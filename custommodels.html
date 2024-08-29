@@ -76,7 +76,7 @@
                 fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/custom?email=${email}&url=${url}`)
     .then(response => {
       if (response.ok) {
-        document.getElementById('yep').innerHTML = `<h5 style="color:green !important;">Successfully submitted! Thanks :)</h5>`
+        document.getElementById('yep').innerHTML = `<h5 style="color:green !important;">Your request was successfully submitted!</h5>`
       }else{
          document.getElementById('yep').innerHTML = `<h5 style="color:red !important;">We encountered an error. Please try again later.</h5>`
       }
