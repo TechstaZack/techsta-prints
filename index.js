@@ -1,3 +1,5 @@
+const outOfStock = ['sk']
+
 function clearcart(){
   localStorage.removeItem('cart-amount')
   localStorage.removeItem('cart-price')
@@ -54,7 +56,15 @@ function fidTriUpdated(){
   const value1 = document.getElementById('option1').value;
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
-  document.getElementById('dynamic-price').innerHTML = ''
+  document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
+  document.getElementById('outostock').innerHTML = ''
+  for (let i = 0; i <= outOfStock.length; i++){
+    if(value1 == outOfStock[i] || value2 == outOfStock[i]){
+      document.getElementById('dynamic-price').innerHTML = ''
+      document.getElementById('outostock').innerHTML = 'Out of stock'
+      return
+    }
+  }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=tria-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
@@ -86,7 +96,15 @@ function fidRecUpdated(){
   const value1 = document.getElementById('option1').value;
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
-  document.getElementById('dynamic-price').innerHTML = ''
+  document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
+  document.getElementById('outostock').innerHTML = ''
+  for (let i = 0; i <= outOfStock.length; i++){
+    if(value1 == outOfStock[i] || value2 == outOfStock[i]){
+      document.getElementById('dynamic-price').innerHTML = ''
+      document.getElementById('outostock').innerHTML = 'Out of stock'
+      return
+    }
+  }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rectanglefid-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
@@ -118,7 +136,15 @@ function fidCirUpdated(){
   const value1 = document.getElementById('option1').value;
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
-  document.getElementById('dynamic-price').innerHTML = ''
+  document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
+  document.getElementById('outostock').innerHTML = ''
+  for (let i = 0; i <= outOfStock.length; i++){
+    if(value1 == outOfStock[i] || value2 == outOfStock[i]){
+      document.getElementById('dynamic-price').innerHTML = ''
+      document.getElementById('outostock').innerHTML = 'Out of stock'
+      return
+    }
+  }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=circlefid-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
@@ -149,7 +175,15 @@ function rocktopusUpdated(){
   const value1 = document.getElementById('option1').value;
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
-  document.getElementById('dynamic-price').innerHTML = ''
+  document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
+  document.getElementById('outostock').innerHTML = ''
+  for (let i = 0; i <= outOfStock.length; i++){
+    if(value1 == outOfStock[i] || value2 == outOfStock[i]){
+      document.getElementById('dynamic-price').innerHTML = ''
+      document.getElementById('outostock').innerHTML = 'Out of stock'
+      return
+    }
+  }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus2-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
@@ -179,7 +213,15 @@ function cubeUpdated(){
   console.log('ran')
   const value1 = document.getElementById('option1').value;
   const value3 = document.getElementById('option3').value;
-  document.getElementById('dynamic-price').innerHTML = ''
+  document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
+  document.getElementById('outostock').innerHTML = ''
+  for (let i = 0; i <= outOfStock.length; i++){
+    if(value1 == outOfStock[i]){
+      document.getElementById('dynamic-price').innerHTML = ''
+      document.getElementById('outostock').innerHTML = 'Out of stock'
+      return
+    }
+  }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cube-${value1}`)
   .then(response => {
     if (!response.ok) {
@@ -585,8 +627,8 @@ function triModal(){
           <img src="images/triangle.jpg" width="225px", height="300px">
           <br><br>
           <h5 style='color: grey;' id="dynamic-price">$3.00</h5>
+                    <h3 style='color: red !important;' id="outostock"></h3>
           <hr>
-
           <h5>Outer Colour</h5>
 
           <select name="outercolour" id="option1" class="btn btn-outline-secondary" onchange="fidTriUpdated()">
@@ -656,6 +698,7 @@ function recModal(){
         <img src="images/rectangle.jpg" width="225px", height="300px">
         <br><br>
         <h5 style='color: grey;' id="dynamic-price">$3.00</h5>
+                  <h3 style='color: red !important;' id="outostock"></h3>
         <hr>
 
         <h5>Outer Colour</h5>
@@ -727,6 +770,7 @@ function cirModal(){
         <img src="images/circle.jpg" width="225px", height="300px">
         <br><br>
         <h5 style='color: grey;' id="dynamic-price">$3</h5>
+                  <h3 style='color: red !important;' id="outostock"></h3>
         <hr>
 
         <h5>Outer Colour</h5>
@@ -798,6 +842,7 @@ function rocktopusModal(){
         <img src="images/rocktopus.jpg" width="225px", height="300px">
         <br><br>
         <h5 style='color: grey;' id="dynamic-price">$3</h5>
+                  <h3 style='color: red !important;' id="outostock"></h3>
         <hr>
 
         <h5>Top Colour</h5>
@@ -869,6 +914,7 @@ function cubeModal(){
         <img src="images/fidget-cube.jpg" width="225px", height="300px">
         <br><br>
         <h5 style='color: grey;' id="dynamic-price">$4</h5>
+                  <h3 style='color: red !important;' id="outostock"></h3>
         <hr>
 
         <h5>Colour</h5>
