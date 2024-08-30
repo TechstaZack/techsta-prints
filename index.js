@@ -19,7 +19,8 @@ function sessionCreate(){
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/create-session?prices=${pricecodes}&quantities=${quantities}`)
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
       }
       return response.json();
     })
@@ -52,23 +53,26 @@ function logout(){
 
 //price update
 function fidTriUpdated(){
-  console.log('ran')
+  
   const value1 = document.getElementById('option1').value;
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
   document.getElementById('outostock').innerHTML = ''
+  document.getElementById('addtocart').disabled = false;
   for (let i = 0; i <= outOfStock.length; i++){
     if(value1 == outOfStock[i] || value2 == outOfStock[i]){
       document.getElementById('dynamic-price').innerHTML = ''
       document.getElementById('outostock').innerHTML = 'Out of stock'
+      document.getElementById('addtocart').disabled = true;
       return
     }
   }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=tria-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -92,23 +96,26 @@ function fidTriUpdated(){
 }
 
 function fidRecUpdated(){
-  console.log('ran')
+  
   const value1 = document.getElementById('option1').value;
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
   document.getElementById('outostock').innerHTML = ''
+  document.getElementById('addtocart').disabled = false;
   for (let i = 0; i <= outOfStock.length; i++){
     if(value1 == outOfStock[i] || value2 == outOfStock[i]){
       document.getElementById('dynamic-price').innerHTML = ''
       document.getElementById('outostock').innerHTML = 'Out of stock'
+      document.getElementById('addtocart').disabled = true;
       return
     }
   }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rectanglefid-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -132,23 +139,26 @@ function fidRecUpdated(){
 }
 
 function fidCirUpdated(){
-  console.log('ran')
+  
   const value1 = document.getElementById('option1').value;
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
   document.getElementById('outostock').innerHTML = ''
+  document.getElementById('addtocart').disabled = false;
   for (let i = 0; i <= outOfStock.length; i++){
     if(value1 == outOfStock[i] || value2 == outOfStock[i]){
       document.getElementById('dynamic-price').innerHTML = ''
       document.getElementById('outostock').innerHTML = 'Out of stock'
+      document.getElementById('addtocart').disabled = true;
       return
     }
   }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=circlefid-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -171,23 +181,26 @@ function fidCirUpdated(){
   })
 }
 function rocktopusUpdated(){
-  console.log('ran')
+  
   const value1 = document.getElementById('option1').value;
   const value2 = document.getElementById('option2').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
   document.getElementById('outostock').innerHTML = ''
+  document.getElementById('addtocart').disabled = false;
   for (let i = 0; i <= outOfStock.length; i++){
     if(value1 == outOfStock[i] || value2 == outOfStock[i]){
       document.getElementById('dynamic-price').innerHTML = ''
       document.getElementById('outostock').innerHTML = 'Out of stock'
+      document.getElementById('addtocart').disabled = true;
       return
     }
   }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus2-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -210,22 +223,25 @@ function rocktopusUpdated(){
   })
 }
 function cubeUpdated(){
-  console.log('ran')
+  
   const value1 = document.getElementById('option1').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
   document.getElementById('outostock').innerHTML = ''
+  document.getElementById('addtocart').disabled = false;
   for (let i = 0; i <= outOfStock.length; i++){
     if(value1 == outOfStock[i]){
       document.getElementById('dynamic-price').innerHTML = ''
       document.getElementById('outostock').innerHTML = 'Out of stock'
+      document.getElementById('addtocart').disabled = true;
       return
     }
   }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cube-${value1}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -248,22 +264,25 @@ function cubeUpdated(){
   })
 }
 function sharkUpdated(){
-  console.log('ran')
+  
   const value1 = document.getElementById('option1').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
   document.getElementById('outostock').innerHTML = ''
+  document.getElementById('addtocart').disabled = false;
   for (let i = 0; i <= outOfStock.length; i++){
     if(value1 == outOfStock[i]){
       document.getElementById('dynamic-price').innerHTML = ''
       document.getElementById('outostock').innerHTML = 'Out of stock'
+      document.getElementById('addtocart').disabled = true;
       return
     }
   }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=shark-${value1}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -286,22 +305,67 @@ function sharkUpdated(){
   })
 }
 function catUpdated(){
-  console.log('ran')
+  
   const value1 = document.getElementById('option1').value;
   const value3 = document.getElementById('option3').value;
   document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
   document.getElementById('outostock').innerHTML = ''
+  document.getElementById('addtocart').disabled = false;
   for (let i = 0; i <= outOfStock.length; i++){
-    if(value1 == outOfStock[i]){
+    if(value1 == outOfStock[i] || value2 == outOfStock[i]){
       document.getElementById('dynamic-price').innerHTML = ''
       document.getElementById('outostock').innerHTML = 'Out of stock'
+      document.getElementById('addtocart').disabled = true;
       return
     }
   }
   fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cat-${value1}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+      let price = data.aud;
+      price = price * value3
+      if(price < 100){
+          price = `¢${price}`
+      }else{
+          price = price / 100
+          price = `$${price}`
+          if(price.includes('.') && !price.endsWith('0') && price.length < 5) {
+              price = `${price}0`
+          }else if(price.length < 5){
+              price = `${price}.00`
+          }
+
+      }
+      document.getElementById('dynamic-price').innerHTML = price;
+  })
+}
+function cableUpdated(){
+  const value = document.getElementById('option').value
+  const value1 = document.getElementById('option1').value;
+  const value2 = document.getElementById('option2').value;
+  const value3 = document.getElementById('option3').value;
+  document.getElementById('dynamic-price').innerHTML = 'Loading Price...'
+  document.getElementById('outostock').innerHTML = ''
+  document.getElementById('addtocart').disabled = false;
+  for (let i = 0; i <= outOfStock.length; i++){
+    if(value1 == outOfStock[i] || value2 == outOfStock[i]){
+      document.getElementById('dynamic-price').innerHTML = ''
+      document.getElementById('outostock').innerHTML = 'Out of stock'
+      document.getElementById('addtocart').disabled = true;
+      return
+    }
+  }
+  fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=${value}-${value1}-${value2}`)
+  .then(response => {
+    if (!response.ok) {
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -339,7 +403,8 @@ function triaddtocart(){
       fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=tria-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -355,7 +420,8 @@ function triaddtocart(){
       fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=tria-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -411,7 +477,8 @@ if(cartprices == null || cartprices == ''){
     fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rectanglefid-${value1}-${value2}`)
 .then(response => {
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
   }
   return response.json();
 })
@@ -427,7 +494,8 @@ if(cartprices == null || cartprices == ''){
     fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rectanglefid-${value1}-${value2}`)
 .then(response => {
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
   }
   return response.json();
 })
@@ -483,7 +551,8 @@ function ciraddtocart(){
       fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=circlefid-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -499,7 +568,8 @@ function ciraddtocart(){
       fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=circlefid-${value1}-${value2}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -555,7 +625,8 @@ function rocktopusaddtocart(){
         fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus2-${value1}-${value2}`)
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
       }
       return response.json();
     })
@@ -571,7 +642,8 @@ function rocktopusaddtocart(){
         fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=rocktopus2-${value1}-${value2}`)
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
       }
       return response.json();
     })
@@ -625,7 +697,8 @@ function cubeaddtocart(){
       fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cube-${value1}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -641,7 +714,8 @@ function cubeaddtocart(){
       fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cube-${value1}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -696,7 +770,8 @@ function sharkaddtocart(){
       fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=shark-${value1}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -712,7 +787,8 @@ function sharkaddtocart(){
       fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=shark-${value1}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -767,7 +843,8 @@ function cataddtocart(){
       fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cat-${value1}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -783,7 +860,8 @@ function cataddtocart(){
       fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=cat-${value1}`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
     }
     return response.json();
   })
@@ -795,6 +873,80 @@ function cataddtocart(){
       const priceArray = cartprices.split(',');
       const length = priceArray.length - 1;
         for (let i = 0; i <= length; i++){
+          if(priceArray[i].includes(priceid)){
+              alreadyin = true
+              alreadyinno = i
+          }
+      if(alreadyin == true){
+          const quantityArray = quantities.split(',')
+          quantityArray[alreadyinno] = value3
+          let updatedquantities = null
+          updatedquantities = quantityArray[0]
+          if(quantityArray[1] != undefined){
+          for (let i = 1; i <= quantityArray.length; i++){
+              let toadd = quantityArray[i]
+              updatedquantities = `${updatedquantities},${toadd}`
+              i++
+          }}
+          localStorage.setItem('cart-quantity',updatedquantities)
+      }else{
+          const newPriceList = `${cartprices},${data.priceid}`
+          const newQuantitiesList = `${quantities},${value3}`
+          const newAmount = parseInt(amount) + 1
+          localStorage.setItem('cart-price', newPriceList)
+          localStorage.setItem('cart-quantity', newQuantitiesList)
+          document.getElementById('cart').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg> ${newAmount}`
+          localStorage.setItem('cart-amount',newAmount)
+      }
+      }
+  })
+  }
+  $('#modal').modal('hide')
+}
+function cableaddtocart(){
+  const value = document.getElementById('option').value;
+  const value1 = document.getElementById('option1').value;
+  const value2 = document.getElementById('option2').value;
+  const value3 = document.getElementById('option3').value;
+  const cartprices = localStorage.getItem('cart-price')
+  const quantities = localStorage.getItem('cart-quantity')
+  const amount = localStorage.getItem('cart-amount')
+  
+  if(cartprices == null || cartprices == ''){
+      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=${value}-${value1}-${value2}`)
+  .then(response => {
+    if (!response.ok) {
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+      localStorage.setItem('cart-price', data.priceid)
+      localStorage.setItem('cart-quantity', value3)
+      localStorage.setItem('cart-amount', '1')
+      document.getElementById('cart').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg> 1`
+  })
+  }else{
+      fetch(`https://kilvington-prints-api-ahf6ft7xlq-uc.a.run.app/priceid?lookup=${value}-${value1}-${value2}`)
+  .then(response => {
+    if (!response.ok) {
+      console.log(response)
+      throw new Error(`Problem With Response: \n${response}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+      let alreadyin = false
+      let alreadyinno = null
+      let priceid = data.priceid;
+      const priceArray = cartprices.split(',');
+      const length = priceArray.length - 1;
+      for (let i = 0; i <= length; i++){
           if(priceArray[i].includes(priceid)){
               alreadyin = true
               alreadyinno = i
@@ -850,7 +1002,7 @@ function triModal(){
           <h5>Outer Colour</h5>
 
           <select name="outercolour" id="option1" class="btn btn-outline-secondary" onchange="fidTriUpdated()">
-            <option value="tra-bla">Black</option>
+            <option value="bla">Black</option>
             <option value="sk">Sky Blue</option>
             <option value="br">Pink</option>
             <option value="go">Gold</option>
@@ -1284,6 +1436,76 @@ function catModal(){
       </div>
       <div class="modal-footer" style='object-position: center;'>
           <button data-dismiss="modal" class="btn btn-outline-secondary" id="addtocart" onclick="cataddtocart()">Add To Cart <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+              <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+              <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+            </svg></button>
+      </div>
+    </div>
+  </div>`
+}
+function cableModal(){
+  document.getElementById('productModal').innerHTML = `<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h1 style='color:grey;'>Cable Managers</h1>
+        <hr>
+        <img src="images/cable.jpg" width="225px", height="300px">
+        <br><br>
+        <h5 style='color: grey;' id="dynamic-price">$2</h5>
+                  <h3 style='color: red !important;' id="outostock"></h3>
+        <hr>
+        <h5>Size</h5>
+
+        <select name="outercolour" id="option" class="btn btn-outline-secondary" onchange="cableUpdated()">
+          <option value="la">Large</option>
+          <option value="me">Medium</option>
+          <option value="sm">Small</option>
+        </select>
+        <h5>Brim</h5>
+
+        <select name="outercolour" id="option1" class="btn btn-outline-secondary" onchange="cableUpdated()">
+          <option value="br">Have a brim</option>
+          <option value="no">No brims</option>
+        </select>
+        <h5>Colour</h5>
+
+        <select name="outercolour" id="option2" class="btn btn-outline-secondary" onchange="cableUpdated()">
+          <option value="bla">Black</option>
+          <option value="sk">Sky Blue</option>
+          <option value="br">Pink</option>
+          <option value="go">Gold</option>
+          <option value="or">Orange</option>
+          <option value="gr">Green</option>
+          <option value="bl">Blue</option>
+          <option value="si">Silver</option>
+          <option value="wh">White</option>
+          <option value="re">Red</option>
+        </select>
+        <h5>Quantity</h5>
+
+        <select name="outercolour" id="option3" class="btn btn-outline-secondary" onchange="cableUpdated()">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        <hr>
+        <h5 class="credit">Fulfilled by Zac Cooper • <a href='https://www.printables.com/model/237713-rocktopus/files' target="_blank">3D model download Here</a></h5>
+      </div>
+      <div class="modal-footer" style='object-position: center;'>
+          <button data-dismiss="modal" class="btn btn-outline-secondary" id="addtocart" onclick="cableaddtocart()">Add To Cart <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
               <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
               <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
             </svg></button>
